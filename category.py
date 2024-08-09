@@ -19,7 +19,7 @@ def get_incidents(number: int = 0):
     if number != 0:
         params = {'sysparm_limit': number}
     else:
-        params = {'sysparm_limit': 1, "sys_id": "b80511d6c36702108ab6d60d050131c5"}
+        params = {'sysparm_limit': 1, "sys_id": "**************************"}
     print(url)
     response = requests.get(url, auth=(username, password), headers=headers, params=params, verify=False)
     if response.status_code == 200:
@@ -95,7 +95,7 @@ if incidents:
     i = pd.Series(listid)
     df = pd.DataFrame({"Number":n, "Description":d, "Sys_id": i})
     # print(df)
-    df1 = df
+    df1 = df.head(3)
     genai_cat(df1)
     print(df1)
     # update_category(df1)
